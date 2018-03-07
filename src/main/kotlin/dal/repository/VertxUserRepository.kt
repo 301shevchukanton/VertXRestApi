@@ -1,4 +1,4 @@
-package data
+package dal.repository
 
 import io.vertx.ext.web.RoutingContext
 

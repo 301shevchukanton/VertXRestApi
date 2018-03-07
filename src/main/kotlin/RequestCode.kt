@@ -1,5 +1,3 @@
-package data
-
 object RequestCode {
     val CREATED_STATUS_CODE = 201
     val BAD_REQUEST_STATUS_CODE = 400

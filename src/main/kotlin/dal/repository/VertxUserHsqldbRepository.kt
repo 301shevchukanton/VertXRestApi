@@ -1,5 +1,6 @@
-package data
+package dal.repository
 
+import dal.entity.User
 import io.vertx.core.AsyncResult
 import io.vertx.core.Future
 import io.vertx.core.Handler

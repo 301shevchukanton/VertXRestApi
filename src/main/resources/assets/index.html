@@ -60,27 +60,27 @@
         $.ajax({
             method: "PUT",
             url: "/api/users/" + id,
-            data: JSON.stringify({name: name})
+            dal: JSON.stringify({name: name})
         }).done(function () {
             load();
         });
     }
     function load() {
         $("#content").children().remove();
-        $.getJSON("/api/users", function (data) {
-            $.each(data, function (key, val) {
+        $.getJSON("/api/users", function (dal) {
+            $.each(dal, function (key, val) {
                 $("<tr><td>" + val.id + "</td><td>" + val.name + "</td>" +
                         "<td>" +
-                        "<button data-action='edit' class='btn btn-primary btn-sm product-edit' " +
-                        "data-toggle='modal' " +
-                        "data-target='#productModal' " +
-                        "data-name='" + val.name + "' " +
-                        "data-origin='" + val.origin + "' " +
-                        "data-id='" + val.id + "'>" +
+                        "<button dal-action='edit' class='btn btn-primary btn-sm product-edit' " +
+                        "dal-toggle='modal' " +
+                        "dal-target='#productModal' " +
+                        "dal-name='" + val.name + "' " +
+                        "dal-origin='" + val.origin + "' " +
+                        "dal-id='" + val.id + "'>" +
                         "<span class='glyphicon glyphicon-pencil'></span>" +
                         "</button>" +
                         "&nbsp;" +
-                        "<button class='btn btn-danger btn-sm product-delete' data-id='" + val.id + "'>" +
+                        "<button class='btn btn-danger btn-sm product-delete' dal-id='" + val.id + "'>" +
                         "   <span class='glyphicon glyphicon-minus'></span>" +
                         "</button>" +
                         "</td>" +
@@ -91,15 +91,15 @@
     }
     function initCallbacks() {
         $(".product-delete").unbind().click(function() {
-           var id = $(this).data("id");
+           var id = $(this).dal("id");
            remove(id);
         });
     }
     function initModal() {
         $("#productModal").on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget);
-            var action = button.data('action');
-            var id = button.data('id');
+            var action = button.dal('action');
+            var id = button.dal('id');
             var productAction = $("#productAction");
             productAction.unbind();
             var modal = $(this);
@@ -113,8 +113,8 @@
                 });
             } else {
                 modal.find('.modal-title').text("Edit a user");
-                modal.find('#product-name').val(button.data("name"));
-                modal.find('#product-origin').val(button.data("origin"));
+                modal.find('#product-name').val(button.dal("name"));
+                modal.find('#product-origin').val(button.dal("origin"));
                 productAction.click(function () {
                     update(id, $("#product-name").val(), $("#product-origin").val());
                     $('#productModal').modal('toggle');

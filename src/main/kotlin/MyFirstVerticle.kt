@@ -1,5 +1,5 @@
-import data.VertxUserHsqldbRepository
-import data.VertxUserRepository
+import dal.repository.VertxUserHsqldbRepository
+import dal.repository.VertxUserRepository
 import io.vertx.core.*
 import io.vertx.core.http.HttpServer
 import io.vertx.ext.web.Router

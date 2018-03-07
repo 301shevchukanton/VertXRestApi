@@ -1,4 +1,4 @@
-package data
+package dal.entity
 
 import java.util.concurrent.atomic.AtomicInteger
 import io.vertx.core.json.JsonObject
