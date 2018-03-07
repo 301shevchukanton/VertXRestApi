@@ -28,8 +28,12 @@ repositories {
 
 dependencies {
     compile(kotlinModule("stdlib-jdk8", kotlin_version))
+
     compile("io.vertx","vertx-web", "3.5.1")
     compile("io.vertx","vertx-core", "3.5.1")
+    compile("io.vertx","vertx-jdbc-client", "3.5.1")
+    compile("org.hsqldb","hsqldb", "2.3.3")
+
     testCompile("io.vertx","vertx-unit", "3.5.1")
     testCompile("junit", "junit", "4.12")
 }

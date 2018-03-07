@@ -1,5 +1,6 @@
 package data
 
+import io.vertx.core.Future
 import io.vertx.core.http.HttpServerResponse
 import io.vertx.core.json.Json
 import io.vertx.ext.web.RoutingContext

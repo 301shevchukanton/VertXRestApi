@@ -1,6 +1,9 @@
 package data
 
 import java.util.concurrent.atomic.AtomicInteger
+import io.vertx.core.json.JsonObject
+
+
 
 class User {
 
@@ -21,9 +24,14 @@ class User {
         this.id = COUNTER.getAndIncrement()
     }
 
-    private constructor(id: Int, name: String?) {
+    constructor(id: Int, name: String?) {
         this.id = id
         this.name = name
+    }
+
+    constructor(json: JsonObject) {
+        this.name = json.getString("NAME")
+        this.id = json.getInteger("ID")
     }
 
     fun copy(name: String): User = User(this.id, name)
